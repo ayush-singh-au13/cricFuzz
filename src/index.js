@@ -1,14 +1,15 @@
 import express from 'express';
 
 const app = express();
-const port = 8000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello from cricFuzz!' });
-});
+const port = process.env.PORT || 8001;
+
+app.get("/", (req, res) => {
+  res.json('Health API is up');
+})
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+  console.log(`Server started on port ${port}`);
+})
